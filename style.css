@@ -1,10 +1,94 @@
-body {
-  color: red;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
-svg {
-  width: 200px;
-  height: 200px;
-  fill: red;
-  background-color: blue;
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Intro Images */
+.intro-images {
+  display: flex;
+  gap: 12px;
+}
+
+.image-container {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.image-container.paper {
+  background-color: #ed3493;
+}
+
+.image-container.rock {
+  background-color: #f9c900;
+}
+
+.image-container.scissors {
+  background-color: #00cae5;
+}
+
+.image {
+  fill: #504343;
+  height: 100%;
+  width: 100%;
+}
+
+/* Intro Text */
+
+.intro-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.intro-text .rock {
+  color: #ed3493;
+}
+
+.intro-text .paper {
+  color: #f9c900;
+}
+.intro-text .scissors {
+  color: #00cae5;
+}
+
+.intro-text .dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
+
+.intro-text .dot.blue {
+  background-color: #00cae5;
+}
+
+.intro-text .dot.pink {
+  background-color: #ed3493;
+}
+
+/* Intro Button */
+
+.intro-button {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  border: 3px solid black;
+  padding: 12px;
+  width: max-content;
 }

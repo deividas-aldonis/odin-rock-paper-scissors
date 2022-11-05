@@ -1,109 +1,172 @@
 * {
-  margin: 0;
-  box-sizing: border-box;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #e5e5f7;
-  opacity: 0.8;
-  background-image: radial-gradient(#444cf7 0.75px, #e5e5f7 0.75px);
-  background-size: 15px 15px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: radial-gradient(#444cf7 0.75px, #e5e5f7 0.75px);
+    background-size: 15px 15px;
 }
 
 .container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Intro Images */
 .intro-images {
-  display: flex;
-  gap: 12px;
+    display: flex;
+    gap: 12px;
 }
 
 .image-container {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  padding: 20px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 20px;
 }
 
 .image-container.paper {
-  background-color: #ed3493;
+    background-color: #ed3493;
 }
 
 .image-container.rock {
-  background-color: #f9c900;
+    background-color: #f9c900;
 }
 
 .image-container.scissors {
-  background-color: #00cae5;
+    background-color: #00cae5;
 }
 
 .image {
-  fill: #504343;
-  height: 100%;
-  width: 100%;
+    fill: #504343;
+    height: 100%;
+    width: 100%;
 }
 
 /* Intro Text */
-
 .intro-text {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 48px;
-  font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 48px;
+    font-weight: bold;
 }
 
 .intro-text .rock {
-  color: #ed3493;
+    color: #ed3493;
 }
 
 .intro-text .paper {
-  color: #f9c900;
+    color: #f9c900;
 }
 .intro-text .scissors {
-  color: #00cae5;
+    color: #00cae5;
 }
 
 .intro-text .dot {
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
 }
 
 .intro-text .dot.blue {
-  background-color: #00cae5;
+    background-color: #00cae5;
 }
 
 .intro-text .dot.pink {
-  background-color: #ed3493;
+    background-color: #ed3493;
 }
 
 /* Intro Button */
 .btn {
-  font-size: 32px;
-  font-weight: bold;
-  letter-spacing: 6px;
-  border: 3px solid black;
-  padding: 12px;
-  cursor: pointer;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
-    5px 5px 0px 0px;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    text-align: center;
+    border: 3px solid black;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px,
+        4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .btn:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+}
+
+.btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Game */
+.game {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Player */
+.player {
+    display: flex;
+    gap: 12px;
+    background-color: #9e9e9e94;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.player .image-container {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 100ms all;
+}
+
+.player .image-container:hover {
+    opacity: 0.75;
+    transform: translateY(-8px);
+}
+
+.player .image-container.chosen {
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* Enemy */
+.enemy {
+    display: flex;
+    gap: 12px;
+    background-color: #9e9e9e94;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.enemy .image-container {
+    opacity: 0.5;
+    transition: 100ms all;
+}
+
+.enemy .image-container.chosen {
+    opacity: 1;
+}
+
+.message {
+    background-color: #9e9e9e94;
+    padding: 12px;
+    font-size: 32px;
+    text-align: center;
+    border-radius: 12px;
 }

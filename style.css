@@ -1,0 +1,10 @@
+body {
+  color: red;
+}
+
+svg {
+  width: 200px;
+  height: 200px;
+  fill: red;
+  background-color: blue;
+}

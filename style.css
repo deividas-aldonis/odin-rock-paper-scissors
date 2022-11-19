@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #202125;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
 .rock,
 .paper,
 .scissors {
@@ -13,4 +24,77 @@
     border-radius: 4px;
     cursor: pointer;
     user-select: none;
+}
+
+.window-overlay {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 250ms ease-in all 200ms;
+    padding: 0 15px;
+}
+.window-overlay.show {
+    visibility: visible;
+
+    transition: 250ms ease-out all 0ms;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    max-width: 400px;
+    position: relative;
+    background-color: #202125;
+    padding: 40px;
+    border-radius: 4px;
+    transform: translateY(75px);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    transition: 200ms ease-in all 0ms;
+}
+
+.modal.show {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 250ms ease-out all 200ms;
+}
+
+.play-again {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 2px 12px;
+    border-radius: 2px;
+    background-color: cadetblue;
+}
+
+.result {
+    font-weight: 500;
+    background-color: #fff;
+    padding: 2px 12px;
+    font-size: 24px;
+    border-radius: 2px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+.close {
+    background-color: #fff;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close i {
+    font-size: 18px;
 }

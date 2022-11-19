@@ -3,3 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.rock,
+.paper,
+.scissors {
+    font-size: 48px;
+    background-color: cadetblue;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}

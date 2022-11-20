@@ -2,30 +2,32 @@ const paper = document.querySelector('.paper');
 const rock = document.querySelector('.rock');
 const scissors = document.querySelector('.scissors');
 
-const windowOverlay = document.querySelector('.window-overlay');
+const closeModalBtn = document.querySelector('.close-modal-btn');
+const playAgainBtn = document.querySelector('.play-again-btn');
+
+const modalOverlay = document.querySelector('.modal-overlay');
 const modal = document.querySelector('.modal');
-const closeModalBtn = document.querySelector('.close');
-const playAgainBtn = document.querySelector('.play-again');
 const result = document.querySelector('.result');
+const roundWinner = document.querySelector('.round-winner');
 
 let playerScore = 0;
-let enemyScore = 0;
+let computerScore = 0;
 
 const openModal = () => {
-    windowOverlay.classList.add('show');
+    modalOverlay.classList.add('show');
     modal.classList.add('show');
 };
 
 const closeModal = () => {
-    windowOverlay.classList.remove('show');
+    modalOverlay.classList.remove('show');
     modal.classList.remove('show');
 };
 
 const playAgain = () => {
     playerScore = 0;
-    enemyScore = 0;
-    document.querySelector('.player').textContent = playerScore;
-    document.querySelector('.enemy').textContent = enemyScore;
+    computerScore = 0;
+    document.querySelector('.player-score').textContent = playerScore;
+    document.querySelector('.computer-score').textContent = computerScore;
     closeModal();
 };
 
@@ -34,43 +36,55 @@ const getComputerChoice = () => ['rock', 'paper', 'scissors'][Math.floor(Math.ra
 const checkWinner = (playerSelection, enemySelection) => {
     const playerAndEnemySelection = playerSelection + enemySelection;
 
+    let roundWinnerMessage = '';
+
     switch (playerAndEnemySelection) {
         case 'paperscissors':
-            enemyScore += 1;
+            computerScore += 1;
+            roundWinnerMessage = 'Computer wins! Scissors beats paper.';
             break;
         case 'rockpaper':
-            enemyScore += 1;
+            computerScore += 1;
+            roundWinnerMessage = 'Computer wins! Paper beats rock.';
             break;
         case 'scissorsrock':
-            enemyScore += 1;
+            computerScore += 1;
+            roundWinnerMessage = 'Computer wins! Rock beats scissors.';
             break;
         case 'paperrock':
             playerScore += 1;
+            roundWinnerMessage = 'Player wins! Paper beats rock.';
+
             break;
         case 'rockscissors':
             playerScore += 1;
+            roundWinnerMessage = 'Player wins! Rock beats scissors.';
+
             break;
         case 'scissorspaper':
             playerScore += 1;
+            roundWinnerMessage = 'Player wins! Scissors beats paper.';
             break;
         default:
+            roundWinnerMessage = "It's a tie!";
     }
 
     if (playerScore > 4) {
         result.textContent = 'Good job! You win!';
         openModal();
     }
-    if (enemyScore > 4) {
+    if (computerScore > 4) {
         result.textContent = 'Computer wins! Better luck next time!';
         openModal();
     }
 
-    document.querySelector('.player').textContent = playerScore;
-    document.querySelector('.enemy').textContent = enemyScore;
+    roundWinner.textContent = roundWinnerMessage;
+    document.querySelector('.player-score').textContent = playerScore;
+    document.querySelector('.computer-score').textContent = computerScore;
 };
 
 const playRound = (playerSelection) => {
-    if (playerScore > 4 || enemyScore > 4) {
+    if (playerScore > 4 || computerScore > 4) {
         result.textContent = 'The game is over! If you want to play more press "play again"';
         openModal();
         return;

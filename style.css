@@ -1,62 +1,119 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+:root {
+    --primary: #202125;
+    --secondary: #5f9ea0;
+    --danger: #ff0000;
+    --white: #fff;
+    --modal-overlay: #00000080;
 }
 
 body {
+    background-color: var(--primary);
     font-family: 'Poppins', sans-serif;
-    background-color: #202125;
+    user-select: none;
 }
 
 button {
-    font-family: inherit;
-    border: none;
     cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+}
+
+.score {
+    display: flex;
+    gap: 24px;
+    border-bottom: 3px solid var(--secondary);
+    padding: 12px 24px;
+    width: fit-content;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 32px;
+    text-align: center;
+}
+
+.heading {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 48px;
+}
+
+.rock-paper-scissors {
+    display: flex;
+    gap: 12px;
 }
 
 .rock,
 .paper,
 .scissors {
-    font-size: 48px;
-    background-color: cadetblue;
-    padding: 12px;
-    border-radius: 4px;
+    transition: background-color 150ms ease-in-out, color 150ms ease-in-out, transform 50ms ease-out;
     cursor: pointer;
-    user-select: none;
+    border: 5px solid var(--secondary);
+    border-radius: 4px;
+    padding: 12px;
+    color: var(--secondary);
+    font-size: 60px;
 }
 
-.window-overlay {
-    visibility: hidden;
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.rock:active,
+.paper:active,
+.scissors:active {
+    transform: scale(0.9);
+}
+
+.round-winner {
+    color: var(--white);
+    font-size: 24px;
+}
+
+.modal-overlay {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
     transition: 250ms ease-in all 200ms;
     padding: 0 15px;
+    width: 100%;
+    height: 100%;
 }
-.window-overlay.show {
+.modal-overlay.show {
     visibility: visible;
-
     transition: 250ms ease-out all 0ms;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--modal-overlay);
 }
 
 .modal {
-    max-width: 400px;
+    display: flex;
     position: relative;
-    background-color: #202125;
-    padding: 40px;
-    border-radius: 4px;
+    flex-direction: column;
     transform: translateY(75px);
     opacity: 0;
-    display: flex;
-    flex-direction: column;
     transition: 200ms ease-in all 0ms;
+    border-radius: 4px;
+    background-color: var(--primary);
+    padding: 40px;
+    max-width: 400px;
 }
 
 .modal.show {
@@ -65,36 +122,51 @@ button {
     transition: 250ms ease-out all 200ms;
 }
 
-.play-again {
-    font-size: 24px;
-    font-weight: 500;
-    padding: 2px 12px;
+.play-again-btn {
+    transform: translateY(0);
+    transition: all 150ms;
+    border: 3px solid var(--secondary);
     border-radius: 2px;
-    background-color: cadetblue;
+    background-color: var(--primary);
+    padding: 6px 20px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.play-again-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--secondary);
 }
 
 .result {
-    font-weight: 500;
-    background-color: #fff;
-    padding: 2px 12px;
-    font-size: 24px;
-    border-radius: 2px;
-    text-align: center;
     margin-bottom: 24px;
+    border-radius: 2px;
+    background-color: var(--white);
+    padding: 2px 12px;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
 }
-.close {
-    background-color: #fff;
+.close-modal-btn {
+    display: flex;
     position: absolute;
     top: -15px;
     right: -15px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 100ms;
+    border-radius: 50%;
+    background-color: var(--white);
+    width: 30px;
+    height: 30px;
 }
 
-.close i {
+.close-modal-btn:hover {
+    background-color: var(--danger);
+    color: white;
+}
+
+.close-modal-btn i {
     font-size: 18px;
 }

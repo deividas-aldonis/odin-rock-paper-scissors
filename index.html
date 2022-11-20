@@ -16,20 +16,31 @@
         <script src="app.js" defer></script>
     </head>
     <body>
-        <div class="score">
-            <span class="player">0</span>
-            <span>:</span>
-            <span class="enemy">0</span>
+        <div class="container">
+            <div class="score">
+                <div class="player">
+                    <div>You</div>
+                    <span class="player-score">0</span>
+                </div>
+                <div class="computer">
+                    <div>Computer</div>
+                    <span class="computer-score">0</span>
+                </div>
+            </div>
+            <h2 class="heading">Choose your weapon</h2>
+            <div class="rock-paper-scissors">
+                <i class="rock fa-regular fa-hand-back-fist"></i>
+                <i class="paper fa-regular fa-hand"></i>
+                <i class="scissors fa-regular fa-hand-scissors"></i>
+            </div>
+            <div class="round-winner"></div>
         </div>
-        <i class="rock fa-regular fa-hand-back-fist"></i>
-        <i class="paper fa-regular fa-hand"></i>
-        <i class="scissors fa-regular fa-hand-scissors"></i>
 
-        <div class="window-overlay">
+        <div class="modal-overlay">
             <div class="modal">
-                <div class="result">Computer Wins!</div>
-                <button class="play-again">play again</button>
-                <button class="close">
+                <div class="result"></div>
+                <button class="play-again-btn">play again</button>
+                <button class="close-modal-btn">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>

@@ -31,6 +31,9 @@ const playAgain = () => {
     document.querySelector('.player-score').textContent = playerScore;
     document.querySelector('.computer-score').textContent = computerScore;
 
+    computerChoices.forEach((el) => el.classList.remove('active'));
+    roundWinner.textContent = 'Waiting for your selection';
+
     closeModal();
 };
 

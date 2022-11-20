@@ -1,6 +1,6 @@
-const paper = document.querySelector('.paper');
-const rock = document.querySelector('.rock');
-const scissors = document.querySelector('.scissors');
+const paper = document.querySelector('.player .paper');
+const rock = document.querySelector('.player .rock');
+const scissors = document.querySelector('.player .scissors');
 
 const closeModalBtn = document.querySelector('.close-modal-btn');
 const playAgainBtn = document.querySelector('.play-again-btn');
@@ -9,6 +9,7 @@ const roundWinner = document.querySelector('.round-winner');
 const modal = document.querySelector('.modal');
 const modalOverlay = document.querySelector('.modal-overlay');
 const result = document.querySelector('.result');
+const computerChoices = document.querySelectorAll('.computer i');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -33,12 +34,12 @@ const playAgain = () => {
     closeModal();
 };
 
-const checkWinner = (playerSelection, enemySelection) => {
-    const playerAndEnemySelection = playerSelection + enemySelection;
+const checkWinner = (playerSelection, computerSelection) => {
+    const playerAndComputerSelection = playerSelection + computerSelection;
 
     let roundWinnerMessage = '';
 
-    switch (playerAndEnemySelection) {
+    switch (playerAndComputerSelection) {
         case 'paperscissors':
             computerScore += 1;
             roundWinnerMessage = 'Computer wins! Scissors beats paper.';
@@ -75,6 +76,14 @@ const checkWinner = (playerSelection, enemySelection) => {
         result.textContent = 'Computer wins! Better luck next time!';
         openModal();
     }
+
+    computerChoices.forEach((el) => {
+        if (el.classList.contains(computerSelection)) {
+            el.classList.add('active');
+        } else {
+            el.classList.remove('active');
+        }
+    });
 
     roundWinner.textContent = roundWinnerMessage;
     document.querySelector('.player-score').textContent = playerScore;

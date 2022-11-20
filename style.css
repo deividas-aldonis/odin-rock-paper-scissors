@@ -56,14 +56,14 @@ button {
     font-size: 48px;
 }
 
-.rock-paper-scissors {
+.player,
+.computer {
     display: flex;
     gap: 12px;
 }
 
-.rock,
-.paper,
-.scissors {
+.player i,
+.computer i {
     border: 5px solid var(--secondary);
     padding: 12px;
 
@@ -72,21 +72,25 @@ button {
     font-size: 60px;
 
     border-radius: 4px;
+}
+
+.player i {
     cursor: pointer;
     transition: background-color 150ms ease-in-out, color 150ms ease-in-out, transform 50ms ease-out;
 }
 
-.rock:hover,
-.paper:hover,
-.scissors:hover {
+.player i:hover {
     background-color: var(--secondary);
     color: var(--white);
 }
 
-.rock:active,
-.paper:active,
-.scissors:active {
-    transform: scale(0.9);
+.computer i {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.computer i.active {
+    opacity: 1;
 }
 
 .round-winner {
@@ -110,6 +114,7 @@ button {
     visibility: hidden;
     transition: 250ms ease-in all 200ms;
 }
+
 .modal-overlay.show {
     background-color: var(--modal-overlay);
 
@@ -171,6 +176,7 @@ button {
 
     border-radius: 2px;
 }
+
 .close-modal-btn {
     position: absolute;
     top: -15px;
